@@ -1,0 +1,35 @@
+bind_addr = "0.0.0.0"
+
+name = "<%= node.name %>"
+
+data_dir   = "<%= @data_dir %>"
+
+datacenter = "<%= @datacenter %>"
+region     = "<%= @region %>"
+
+advertise {
+  http = "<%= node['ipaddress'] %>"
+  rpc  = "<%= node['ipaddress'] %>"
+  serf = "<%= node['ipaddress'] %>"
+}
+
+server {
+  enabled = <%= @server_enabled %>
+  <% if @server_enabled == true %>
+  bootstrap_expect = <%= @bootstrap_expect %>
+  <% end %>
+}
+
+client {
+  enabled = <%= @client_enabled %>
+  options = { 
+    docker.privileged.enabled = "true" 
+  }
+  servers = <%= @servers %>
+}
+
+consul {
+  address = "<%= @consul_addr %>"
+}
+
+atlas { join = "false" } 

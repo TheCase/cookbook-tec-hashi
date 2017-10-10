@@ -1,0 +1,41 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+  require_chef_omnibus: 12.17.44
+
+  client_rb:
+    environment: "test-kitchen"
+  
+platforms:
+  - name: centos-7.2
+
+suites:
+  - name: consul
+    run_list:
+      - recipe[tec-hashi::consul]
+      - recipe[tec-hashi::hashi-ui]
+    attributes:
+      consul:
+        server: true
+
+  - name: vault
+    run_list:
+      - recipe[tec-hashi::consul]
+      - recipe[tec-hashi::vault]
+    attributes:
+      consul:
+        server: true
+
+  - name: nomad
+    run_list:
+      - recipe[tec-hashi::consul]
+      - recipe[tec-hashi::nomad]
+    attributes:
+      consul:
+        server: false
+      nomad:
+        server_enabled: "true"
+        client_enabled: "true"

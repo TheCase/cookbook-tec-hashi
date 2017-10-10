@@ -1,0 +1,27 @@
+{
+  "bind_addr": "<%= node['ipaddress'] %>",
+  <% if @server == true %>
+  "client_addr": "<%= node['ipaddress'] %>",
+  <% else %>
+  "client_addr": "127.0.0.1",
+  <% end %>
+  "data_dir": "<%= @data_dir %>",
+  "datacenter": "<%= @datacenter %>",
+  "node_name": "<%= @node_name %>",
+  "ports": {
+    "dns": <%= @dns_port %>,
+    "http": 8500,
+    "serf_lan": 8301,
+    "serf_wan": 8302,
+    "server": 8300
+  },
+  <% if @server == true %>
+  "bootstrap_expect": <%= @bootstrap_expect %>,
+  <% else %>
+  "start_join": [ "<%= @start_server %>" ],
+  <% end %>
+  "server": <%= @server %>,
+  "ui": <%= @ui %>,
+  "verify_incoming": false,
+  "verify_outgoing": false
+}

@@ -50,5 +50,5 @@ end
 if node['nomad']['client_enabled'] 
   include_recipe 'tec-hashi::docker'
   include_recipe 'tec-hashi::docker-nfs'
-  include_recipe 'tec-hashi::filebeat'
+#  include_recipe 'tec-hashi::filebeat'
 end

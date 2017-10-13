@@ -13,12 +13,12 @@ filebeat.prospectors:
 
 - input_type: log
   paths:
-    - /var/log/messages
+    - /var/log/syslog
   document_type: syslog
-- input_type: log
-  paths:
-    - /opt/nomad/alloc/*/alloc/logs/*
-  document_type: nomad
+#- input_type: log
+#  paths:
+#    - /opt/nomad/alloc/*/alloc/logs/*
+#  document_type: nomad
 
   ### Multiline options
 

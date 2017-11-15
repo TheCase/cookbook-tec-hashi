@@ -28,7 +28,7 @@ After=network.target
 
 [Service]
 Environment="GOMAXPROCS=2" "PATH=/usr/local/bin:/usr/bin:/bin"
-ExecStart=#{exec} #{nomad} #{consul}
+ExecStart=#{exec} -listen-address #{node['hashi-ui']['listen_address']} #{nomad} #{consul}
 ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=TERM
 User=root

@@ -12,6 +12,7 @@ ark 'nomad' do
   strip_components 0
   has_binaries %w(nomad)
   action :install
+  notifies :restart, 'service[nomad]'
 end
 
 template '/etc/nomad.json' do

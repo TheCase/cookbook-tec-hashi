@@ -15,7 +15,6 @@ if node['hashi-ui'].include?('nomad_addr')
 end
 if node['hashi-ui'].include?('consul_addr')
   consul = '-consul-enable -consul-address ' +  node['hashi-ui']['consul_addr']
-newrelic = "-newrelic-app-name hashi-ui -newrelic-license #{node['newrelic']['application_monitoring']['license']}"
 end
 exec = File.join(node['hashi-ui']['dir'],node['hashi-ui']['exec'])
 

@@ -1,4 +1,6 @@
 
+include_recipe 'apt'
+
 include_recipe 'ark'
 
 ark 'consul' do

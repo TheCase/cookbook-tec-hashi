@@ -18,11 +18,6 @@ EOF
   action :create
 end
 
-# allow newrelic user to read docker stats
-group 'docker' do
-  members [ 'newrelic' ]
-end
-
 execute 'install redis logging driver' do
   command 'docker plugin install pressrelations/docker-redis-log-driver:0.0.1 --alias redis-log-driver --grant-all-permissions' 
   action :run

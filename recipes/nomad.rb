@@ -19,7 +19,7 @@ end
 
 template '/etc/nomad.json' do
   source 'nomad.json.erb'
-	variables ({
+  variables ({
     datacenter:       node['nomad']['datacenter'],
     region:           node['nomad']['region'],
     bootstrap_expect: node['nomad']['bootstrap_expect'],
@@ -28,6 +28,7 @@ template '/etc/nomad.json' do
     consul_addr:      node['nomad']['consul_addr'],
     server_enabled:   node['nomad']['server_enabled'],
     client_enabled:   node['nomad']['client_enabled'],
+    vault:            node['nomad']['vault'],
   })
   action :create
   notifies :restart, 'service[nomad]'

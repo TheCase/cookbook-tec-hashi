@@ -15,9 +15,9 @@ advertise {
 
 server {
   enabled = <%= @server_enabled %>
-  <% if @server_enabled == true %>
+  <% if @server_enabled == true -%>
   bootstrap_expect = <%= @bootstrap_expect %>
-  <% end %>
+  <% end -%>
 }
 
 client {
@@ -32,13 +32,13 @@ consul {
   address = "<%= @consul_addr %>"
 }
 
-<% if defined?(node['nomad']['vault']) %>
+<% if not @vault.nil? -%>
 vault {
   enabled = true
-  address = "<%= node['nomad']['vault']['addr'] %>"
-  token = "<%= node['nomad']['vault']['token'] %>"
-  create_from_role = "<%= node['nomad']['vault']['role'] %>"
+  address = "<%= @vault['addr'] %>"
+  token = "<%= @vault['token'] %>"
+  create_from_role = "<%= @vault['role'] %>"
 }
-<% end %>
+<% end -%>
 
 #atlas { join = "false" } 

@@ -32,7 +32,7 @@ consul {
   address = "<%= @consul_addr %>"
 }
 
-<% if node['nomad']['vault'] %>
+<% if node['nomad']['vault']['host'] %>
 vault {
   enabled = true
   address = "<%= node['nomad']['vault']['addr'] %>"

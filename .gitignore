@@ -1,4 +1,2 @@
 Berksfile.lock
-.kitchen/*
-
-
+.kitchen

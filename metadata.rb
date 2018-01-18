@@ -13,3 +13,6 @@ depends 'ark'
 depends 'systemd', '= 2.1.3'
 
 depends 'sysctl'
+
+depends 'ntp'
+depends 'rsyslog'

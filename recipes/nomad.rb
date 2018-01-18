@@ -1,3 +1,7 @@
+include_recipe 'ntp'
+include_recipe 'rsyslog:client'
+
+
 
 # system tuning
 node.default['sysctl']['params']['vm']['max_map_count'] = 262144

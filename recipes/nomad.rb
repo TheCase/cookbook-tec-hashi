@@ -28,6 +28,7 @@ template '/etc/nomad.json' do
     consul_addr:      node['nomad']['consul_addr'],
     server_enabled:   node['nomad']['server_enabled'],
     client_enabled:   node['nomad']['client_enabled'],
+    node_class:       node['nomad']['node_class'],
     vault:            node['nomad']['vault'],
   })
   action :create

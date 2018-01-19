@@ -20,3 +20,4 @@ default['nomad']['client_enabled'] = 'true'
 
 default['nomad']['service_args'] = ''
 
+default['nomad']['node_class'] = ''

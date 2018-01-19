@@ -26,6 +26,7 @@ client {
     docker.privileged.enabled = "true" 
   }
   servers = <%= @servers %>
+  node_class = "<%= @node_class %>"
 }
 
 consul {

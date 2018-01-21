@@ -25,7 +25,7 @@
   <% else %>
   "start_join": [ "<%= @start_server %>" ],
   <% end %>
-  if <% if not @encrypt.nil? -%>
+  <% if not @encrypt.nil? -%>
   "encrypt": "<%= @encrypt %>",  
   <% end -%>
   "server": <%= @server %>,

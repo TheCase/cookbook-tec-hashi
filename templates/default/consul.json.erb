@@ -19,9 +19,12 @@
   "bootstrap_expect": <%= @bootstrap_expect %>,
   <% else %>
   "start_join": [ "<%= @start_server %>" ],
+  if <% if not @encrypt.nil? -%>
+  "encrypt": "<%= @encrypt %>",  
+  <% end -%>
   <% end %>
   "server": <%= @server %>,
-  "ui": <%= @ui %>,
-  "verify_incoming": false,
-  "verify_outgoing": false
+  "ui": <%= @ui %>
+
+
 }

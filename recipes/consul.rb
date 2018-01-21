@@ -23,6 +23,7 @@ template '/etc/consul.json' do
     server:           node['consul']['server'],
     ui:               node['consul']['ui'],
     start_server:     node['consul']['start_server']
+    enrypt:           node['consul']['encrypt']
   })
   action :create
   notifies :restart, 'service[consul]'

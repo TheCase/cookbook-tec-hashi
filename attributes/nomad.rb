@@ -1,5 +1,5 @@
 default['nomad']['region'] = 'global'
-default['nomad']['datacenter'] = 'dc1'
+default['nomad']['datacenter'] = node['consul']['datacenter']
 
 default['nomad']['bootstrap_expect'] = 1
 

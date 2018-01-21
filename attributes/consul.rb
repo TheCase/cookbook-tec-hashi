@@ -1,7 +1,9 @@
 
 default['consul']['datacenter']       = 'dc1'
+default['consul']['tls']              = false
 default['consul']['node_name']        = node.name
 default['consul']['data_dir']         = '/var/lib/consul'
+default['consul']['cert_dir']         = '/etc/consul.d/ssl'
 default['consul']['dns_port']         = 8600
 default['consul']['server']           = false 
 default['consul']['ui']               = false 

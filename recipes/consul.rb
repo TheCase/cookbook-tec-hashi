@@ -22,8 +22,12 @@ template '/etc/consul.json' do
     dns_port:         node['consul']['dns_port'],
     server:           node['consul']['server'],
     ui:               node['consul']['ui'],
-    start_server:     node['consul']['start_server']
-    enrypt:           node['consul']['encrypt']
+    start_server:     node['consul']['start_server'],
+    enrypt:           node['consul']['encrypt'],
+    tls:              node['consul']['tls'],
+    ca_file:          File.join(node['consul']['cert_dir'],'ca.cert'),
+    cert_file:        File.join(node['consul']['cert_dir'],'consul.cert'),
+    key_file:         File.join(node['consul']['cert_dir'],'consul.key')
   })
   action :create
   notifies :restart, 'service[consul]'
